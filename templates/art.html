@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Generative Art</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Interactive Generative Art</h1>
+        <p>Click anywhere on the canvas to add a shape.</p>
+
+        <!-- 🔥 Embed Pygame-generated image -->
+        <img id="artCanvas" src="{{ url_for('interactive_feed') }}" alt="Interactive Art" width="800">
+        {% if generated_image %}
+        <div class="generated-art">
+            <h2>Generated Art</h2>
+            <img src="{{ url_for('serve_uploaded_file', filename=generated_image.split('/')[-1]) }}" alt="Generated Art">
+        </div>
+        {% endif %}
+    
+        <script>
+            document.getElementById("artCanvas").addEventListener("click", function(event) {
+                let x = event.offsetX;
+                let y = event.offsetY;
+                
+                // Send shape coordinates to Flask
+                fetch("/add_shape", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/x-www-form-urlencoded" },
+                    body: `x=${x}&y=${y}`
+                });
+            });
+        </script>
+
+        <a href="/" class="back-btn">Back to Home</a>
+      </div>
+
+</body>
+</html>

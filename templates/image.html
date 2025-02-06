@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>UPLOAD & MANIPULATE IMAGE</h1>
+
+        <!-- ✅ Image Upload Form -->
+        <form id="upload-form" action="/image" method="post" enctype="multipart/form-data">
+            <div class="upload-container">
+                <label for="file-upload" class="custom-file-upload">Choose an Image</label>
+                <input id="file-upload" type="file" name="file" accept="image/*" required hidden>
+                <button type="submit" class="upload-btn">Upload</button>
+            </div>
+        </form>
+
+        <!-- ✅ Image Manipulation Form (Initially Hidden) -->
+        <form id="manipulation-form" action="/manipulate_image" method="post" style="display: none;">
+            <input  id="image-path" type="hidden" name="image_path" value="{{ image_path }}">
+            <div class="manipulation-buttons">
+                <button type="submit" name="action" value="grayscale" class="manipulation-btn">Grayscale</button>
+                <button type="submit" name="action" value="rotate" class="manipulation-btn">Rotate</button>
+                <button type="submit" name="action" value="flip" class="manipulation-btn">Flip</button>
+            </div>
+        </form>
+
+        <!-- ✅ Display Uploaded Image -->
+        <div id="image-preview-container">
+            {% if image_path %}
+                <img id="image-preview" src="{{ url_for('serve_uploaded_file', filename=image_path) }}" alt="Uploaded Image">
+                <script>document.getElementById("manipulation-form").style.display = "block";</script>
+            {% endif %}
+        </div>
+
+        <a href="/" class="back-btn">Back to Home</a>
+    </div>
+
+    <script>
+        // ✅ Show Image Preview before Upload
+        document.getElementById("file-upload").addEventListener("change", function(event) {
+            var reader = new FileReader();
+            reader.onload = function() {
+                var output = document.getElementById('image-preview');
+                if (!output) {
+                    output = document.createElement("img");
+                    output.id = "image-preview";
+                    document.getElementById("image-preview-container").appendChild(output);
+                }
+                output.src = reader.result;
+                output.style.display = "block";
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        });
+
+        // ✅ Ensure Manipulation Buttons Appear After Upload
+        document.getElementById("upload-form").addEventListener("submit", function() {
+            document.getElementById("manipulation-form").style.display = "block";
+        });
+      
+        window.onload = function () {
+        var imagePath = "{{ image_path }}";
+        if (imagePath) {
+            var manipulationForm = document.getElementById("manipulation-form");
+            manipulationForm.style.display = "block";
+            manipulationForm.style.opacity = "1";
+            manipulationForm.style.visibility = "visible";
+        }
+        };
+    </script>
+    
+  
+</body>
+</html>

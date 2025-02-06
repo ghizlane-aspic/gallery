@@ -1,0 +1,480 @@
+/* 🎨 General Styles */
+body {
+  background-color: #000000; /* Dark background */
+  color: #ffffff;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* 🎨 Artistic Container */
+.container {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  background: rgba(255, 0, 0, 0.1); /* Glassmorphism effect */
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 4px 30px rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  width: 90%;
+  max-width: 800px;
+  transition: all 0.3s ease-in-out;
+}
+
+/* 🎨 Heading */
+h1 {
+  font-size: 3rem; /* ✅ Elegant, Large but Not Overwhelming */
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 2px;
+  font-family: 'Playfair Display', serif; /* ✅ A Classy, Luxury Font */
+  color: #ff0000; /* ✅ Louboutin Red */
+  text-shadow: 2px 2px 8px rgba(255, 0, 0, 0.5); /* ✅ Soft Glow */
+  border-bottom: 3px solid rgba(255, 0, 0, 0.6); /* ✅ Subtle Underline */
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  display: inline-block;
+  position: sticky;
+  top: 0;
+  background: #250000; /* Ensure it stands out */
+  padding: 20px;
+  z-index: 1000; /* Keep it above everything */  
+  text-align: center;
+  font-size: 40px;
+  border-radius: 20px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.7);
+}
+
+/* 🎨 Navigation Container */
+nav {
+  display: flex;
+  flex-wrap: wrap; /* Allows wrapping to prevent overlap */
+  justify-content: center;
+  gap: 15px; /* Adds spacing between buttons */
+  margin-top: 20px;
+}
+
+/* 🎨 Navigation Buttons */
+nav a {
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 12px 20px;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #c40000, #ff0000);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+  text-align: center;
+  min-width: 180px; /* Ensures buttons have consistent size */
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  background: linear-gradient(90deg, #ffd700, #ff5555);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+  transform: scale(1.1);
+}
+
+/* 🎨 Adjusting Button Spacing */
+nav a:not(:last-child) {
+  margin-right: 10px;
+}
+
+/* 🎨 Canvas Art Image */
+img#artCanvas {
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.7);
+  margin-top: 20px;
+  transition: transform 0.3s ease-in-out;
+  max-width: 100%;
+}
+
+img#artCanvas:hover {
+  transform: scale(1.05);
+}
+
+/* 🎨 Back Button */
+a.back-btn {
+  display: inline-block;
+  font-family: 'Playfair Display', serif;
+  margin-top: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 10px 15px;
+  border-radius: 50px;
+  background: linear-gradient(90deg, #c40000, #ff0000);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  transition: all 0.3s ease-in-out;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  min-width: 180px;
+}
+
+a.back-btn:hover {
+  background: linear-gradient(90deg, #ffd700, #ff5555);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+  transform: scale(1.1);
+}
+
+/* 🎨 File Upload Section */
+.upload-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px; /* Adds spacing between elements */
+  margin-top: 20px;
+}
+
+/* 🎨 File Input (Hidden Default Button) */
+input[type="file"] {
+  display: none;
+}
+
+/* 🎨 Custom File Upload Button */
+.custom-file-upload {
+  background: linear-gradient(90deg, #c40000, #ff0000);
+  color: #ffffff;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+.custom-file-upload:hover {
+  background: linear-gradient(90deg, #ffd700, #ff5555);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+  transform: scale(1.1);
+}
+
+/* 🎨 Upload Button */
+.upload-btn {
+  background: linear-gradient(90deg, #c40000, #ff0000);
+  color: #ffffff;
+  border: none;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-size: 1rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: 'Playfair Display', serif;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+}
+
+.upload-btn:hover {
+  background: linear-gradient(90deg, #ffd700, #ff5555);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+  transform: scale(1.1);
+}
+
+/* 🎨 Back to Home Button */
+.back-btn {
+  display: block;
+  margin-top: 30px;
+  text-align: center;
+  background: linear-gradient(90deg, #c40000, #ff0000);
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 12px 20px;
+  font-family: 'Playfair Display', serif;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  transition: all 0.3s ease-in-out;
+}
+
+.back-btn:hover {
+  background: linear-gradient(90deg, #ffd700, #ff5555);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+  transform: scale(1.1);
+}
+/* 🎨 Image Preview */
+#image-preview-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+  width: 100%;
+}
+
+#image-preview {
+  max-width: 50%; /* Ensure it doesn’t overflow */
+  max-height: 250px; /* Limit height */
+  border-radius: 15px;
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.7);
+  padding: 10px;
+  background: rgba(255, 0, 0, 0.2);
+}
+
+/* 🎨 File Name */
+#file-name {
+  text-align: center;
+  font-family: 'Playfair Display', serif;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #ff5555; /* Louboutin Red */
+  margin-top: 10px;
+}
+/* 🎨 Visualization Page Styling */
+.visualization-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* 🎨 Styled Visualization Image */
+.visualization-img {
+  max-width: 80%;  /* ✅ Makes it responsive */
+  max-height: 500px;  /* ✅ Limits excessive height */
+  border-radius: 10px;
+  box-shadow: 0px 0px 15px rgba(255, 0, 0, 0.7);
+  background: rgba(255, 0, 0, 0.2);
+  padding: 10px;
+}
+
+/* 🎨 Back Button Styling */
+.back-btn {
+  display: block;
+  margin-top: 30px;
+  text-align: center;
+  background: linear-gradient(90deg, #c40000, #ff0000);
+  color: #ffffff;
+  font-size: 1rem;
+  padding: 12px 20px;
+  border-radius: 50px;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-decoration: none;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.7);
+  transition: all 0.3s ease-in-out;
+}
+
+.back-btn:hover {
+  background: linear-gradient(90deg, #ffd700, #ff5555);
+  box-shadow: 0 0 20px rgba(255, 215, 0, 1);
+  transform: scale(1.1);
+}
+
+#file-name {
+  margin-left: 0;
+  font-size: 16px;
+  font-family: 'Playfair Display', serif;
+  color: white;
+}
+
+.manipulation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.manipulation-btn {
+  background: linear-gradient(145deg, #ff0000, #cc0000);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0px 0px 8px rgba(255, 0, 0, 0.6);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: 'Playfair Display', serif;
+}
+
+.manipulation-btn:hover {
+  background: linear-gradient(145deg, #cc0000, #990000);
+  box-shadow: 0px 0px 10px rgba(255, 0, 0, 1);
+  transform: scale(1.05);
+}
+
+.manipulation-btn:active {
+  transform: scale(0.93);
+}
+
+/* 🎭 Gallery Container */
+.gallery {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 25px;
+  padding: 40px;
+  padding-top: 100px;
+}
+
+/* 🖼️ Individual Image Styling */
+.gallery-item {
+  border-radius: 10px;
+  overflow: hidden;
+  background: #250000;
+  padding: 10px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+  transition: transform 0.3s ease-in-out;
+}
+
+.gallery-item:hover {
+  transform: scale(1.1);
+}
+
+/* 📷 Images in the Gallery */
+.gallery-item img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid red;
+}
+
+/* 🎨 Generated Art Section */
+.generated-art {
+  margin-top: 40px;
+  padding: 30px;
+  background: #250000;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* 🖌️ Generated Art Image */
+.generated-art img {
+  width: 400px;
+  height: auto;
+  border: 3px solid red;
+  border-radius: 10px;
+}
+
+/* 🔙 Back Button */
+.back-btn {
+  display: inline-block;
+  margin-top: 20px;
+  padding: 12px 20px;
+  font-size: 16px;
+  color: #ff0000;
+  background: #250000;
+  border: 2px solid red;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: 0.3s ease-in-out;
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.8);
+}
+
+.back-btn:hover {
+  background: red;
+  color: black;
+}
+/* 🎨 Manipulation Buttons (Initially Hidden) */
+#manipulation-form {
+  display: none;
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 0.5s ease, transform 0.3s ease-in-out;
+}
+
+#manipulation-form.show {
+  display: block;
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* 🎨 Louboutin-Style Buttons */
+.manipulation-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 15px;
+}
+
+.manipulation-btn {
+  background: linear-gradient(145deg, #ff0000, #cc0000);
+  color: white;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 8px 14px;
+  border: none;
+  border-radius: 30px;
+  box-shadow: 0px 0px 8px rgba(255, 0, 0, 0.6);
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-family: 'Playfair Display', serif;
+  opacity: 0.85 !important; 
+  visibility: visible !important;
+  position: relative;
+  z-index: 1000;
+}
+
+.manipulation-btn:hover {
+  background: linear-gradient(145deg, #cc0000, #990000);
+  box-shadow: 0px 0px 10px rgba(255, 0, 0, 1);
+  transform: scale(1.05);
+}
+
+.manipulation-btn:active {
+  transform: scale(0.93);
+}
+
+
+/* 🎶 Fix Audio Player Alignment */
+.audio-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;  /* ✅ Centers everything */
+  justify-content: center;
+  margin-top: 20px;
+  padding: 15px;
+  background: #250000;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.8);
+  border-radius: 15px;
+  width: 90%;
+  max-width: 400px; /* ✅ Ensures it doesn't overflow */
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* 🎧 Centered Audio Title */
+.audio-title {
+  font-size: 18px;
+  color: red;
+  text-shadow: 2px 2px 10px rgba(255, 0, 0, 0.6);
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* 🎵 Styled Audio Player */
+.styled-audio {
+  width: 100%;
+  max-width: 350px;
+  border: 2px solid red;
+  border-radius: 27px;
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+
+.ai-generated-img {
+  width: 400px;
+  height: auto;
+  border: 3px solid red;
+  border-radius: 10px;
+}

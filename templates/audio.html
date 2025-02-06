@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Audio</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>UPLOAD & MANIPULATE AUDIO</h1>
+
+    <!-- ✅ Audio Upload Form -->
+    <form id="upload-form" action="/audio" method="post" enctype="multipart/form-data">
+        <label for="audio-upload" class="custom-file-upload">Choose an Audio File</label>
+        <input id="audio-upload" type="file" name="audio" accept="audio/*" required hidden>
+        <span id="file-name" class="file-name-display">No file selected</span> <!-- ✅ File Name Appears Here -->
+        <button type="submit" class="upload-btn">Upload</button>
+        <a href="/" class="back-btn">Back to Home</a>
+    </form>
+
+    <!-- ✅ Show Audio Player & Manipulation Buttons ONLY after Upload -->
+    {% if audio_path %}
+    <div class="audio-container">
+        <h2 class="audio-title">🎶 Now Playing</h2>
+        <audio controls class="styled-audio">
+            <source src="{{ url_for('serve_uploaded_audio', filename=audio_path) }}" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
+
+        <!-- ✅ Ensure Manipulation Form is Displayed -->
+        <form action="/manipulate_audio" method="post">
+            <input type="hidden" name="audio_path" value="{{ audio_path }}">
+            <div class="manipulation-buttons">
+                <button type="submit" name="action" value="reverse" class="manipulation-btn">Reverse</button>
+                <button type="submit" name="action" value="speed_up" class="manipulation-btn">Speed Up</button>
+            </div>
+        </form>
+    </div>
+    {% endif %}
+</div>
+
+<script>
+    // ✅ Show selected file name after choosing a file
+    document.getElementById("audio-upload").addEventListener("change", function(event) {
+        var fileName = event.target.files[0] ? event.target.files[0].name : "No file selected";
+        document.getElementById("file-name").textContent = fileName; // ✅ Display the file name
+    });
+
+    // ✅ Ensure label triggers file input
+    document.querySelector(".custom-file-upload").addEventListener("click", function() {
+        document.getElementById("audio-upload").click();
+    });
+</script>
+
+</body>
+</html>

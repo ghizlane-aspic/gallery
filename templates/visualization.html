@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Visualization</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Data Visualization</h1>
+
+        <!-- 🎨 Visualization Container -->
+        <div class="visualization-container">
+            <img src="{{ image_path }}" alt="Visualization" class="visualization-img">
+        </div>
+
+        <!-- 🎨 Back to Home Button -->
+        <a href="/" class="back-btn">Back to Home</a>
+    </div>
+</body>
+</html>
+
